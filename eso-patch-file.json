@@ -1,0 +1,12 @@
+[
+	{
+		"op" : "replace" ,
+		"path" : "/metadata/ownerReferences/0/apiVersion" ,
+		"value" : "external-secrets.io/v1beta1"
+	},
+	{
+		"op" : "add" ,
+		"path" : "/metadata/ownerReferences/0/blockOwnerDeletion" ,
+		"value" : true
+	}
+]

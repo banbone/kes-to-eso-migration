@@ -1,0 +1,14 @@
+{
+  "name": "eso",
+  "version": "1.0.0",
+  "description": "converts old k8s external secrets to new format",
+  "main": "./bin/eso.js",
+  "bin": {
+    "eso": "bin/eso.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "banbone",
+  "license": "ISC"
+}
