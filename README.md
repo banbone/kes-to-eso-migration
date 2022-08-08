@@ -4,7 +4,7 @@ As the existing kestoeso migration tool doesn't really work for me (it's really 
 
 ## Prerequisites
 * Nodejs.
-* Jq
+* Jq.
 * An authenticated session your cluster, and necessary permissions to manage secrets.
 
 ## How to run it
@@ -14,7 +14,7 @@ Just run `./entrypoint.sh` from the root of this repo. You'll need a terminal se
 1. Captures all current external secrets definitions as json manifests.
 2. These are passed to a nodejs script that performs some data manipulation and chews the manifests until they resemble the new format.
 3. The new manifests are applied to your kubernetes cluster.
-4. The Kubernetes External Secrets controller deploymenbt is scaled down to provent any control conflicts with the new operator.
+4. The Kubernetes External Secrets controller deployment is scaled down to prevent any control conflicts with the new operator.
 5. Patches are applied to each secret under the control of External Secrets - this switches the owner api to the External Secrets Operator and prevents owner deletion.
 6. The External Secret Operator controller deployment is scaled up to take control over the secrets.
-7. All external secrets no longer covered by the new operator are deleted
+7. All external secrets no longer covered by the new operator are deleted.

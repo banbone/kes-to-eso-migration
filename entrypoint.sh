@@ -38,4 +38,5 @@ kubectl delete es --all -A
 END=$(date +%s)
 COMPLETED_FILES=$(cat length.txt)
 TIME=$((END-START))
-echo "$COMPLETED_FILES secrets migrated in $TIME seconds"
+FORMATTED_TIME=$(date -ju -f "%s" "$TIME" "+%Mm and %Ss")
+echo "$COMPLETED_FILES secrets migrated in $FORMATTED_TIME"
