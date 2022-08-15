@@ -4,6 +4,7 @@ As the existing kestoeso migration tool doesn't really work for me (it's really 
 
 ## Prerequisites
 * Nodejs.
+* Yq.
 * Jq.
 * An authenticated session your cluster, and necessary permissions to manage secrets.
 

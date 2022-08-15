@@ -1,20 +1,20 @@
 #! /bin/bash
 START=$(date +%s)
-safe="$1"
+mode="$1"
 # init
 mkdir 'out' 'source'
 
-if [ "$safe" == "safe" ] ;
+if [ "$mode" == "safe" ] ;
 then
   echo "Safe mode engaged" ;
 else
-  echo "Destructive mode coming on!" ;
+  echo "Destructive mode engaged" ;
 fi
 # get all existing external secret definitions
 bash -c "$(kubectl get externalsecrets.kubernetes-client.io -A \
   -o=jsonpath='{range .items[*]}{"kubectl get externalsecrets.kubernetes-client.io -o json -n "}{.metadata.namespace}{" "}{.metadata.name}{" > source/"}{.metadata.namespace}{"-"}{.metadata.name}{".json; "}{end}')"
 
-if [ ! "$safe" == "safe" ] ;
+if [ ! "$mode" == "safe" ] ;
 then
 # ensure eso is scaled down for safety
   kubectl scale deployment -n external-secrets-operator external-secrets-operator --replicas=0
@@ -22,7 +22,7 @@ fi
 # generate updated manifests for external secret definitions
 node . > length.txt
 
-if [ ! "$safe" == "safe" ] ;
+if [ ! "$mode" == "safe" ] ;
 then
 # apply updates to all external secrets manifests
 kubectl apply -f "out/"
