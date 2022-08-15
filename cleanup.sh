@@ -1,5 +1,4 @@
 #! /bin/bash
-rm -rf 'source'
-rm -rf 'out'
-rm "*.txt"
+rm -rf 'source' 'out' 'yaml-out'
+rm ./*.txt
 echo "Done"
